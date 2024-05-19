@@ -54,6 +54,7 @@
         const favoritesh2 = document.getElementById('favorites-h2');
 
         fetchHaikuButton.addEventListener('click', function() {
+            // fetch('https://poetrydb.org/linecount/3/lines.json')
             fetch('https://poetrydb.org/linecount/3/lines.json')
                 .then(response => response.json())
                 .then(data => {

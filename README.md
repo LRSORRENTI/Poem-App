@@ -74,14 +74,12 @@ git clone
 6. Click the "Remove" button next to any favorite poem to delete it from the list.
 
 ### Code Overview
-- HTML
-**The HTML structure includes buttons for fetching poems, saving favorites, and toggling the favorites list. It also contains a div for displaying the poem and an unordered list for showing favorite poems.**
 
-- CSS
-**Basic styling is applied to make the app visually appealing. Styles include padding, margins, background colors, and shadow effects for a clean look.**
+- **The HTML structure includes buttons for fetching poems, saving favorites, and toggling the favorites list. It also contains a div for displaying the poem and an unordered list for showing favorite poems.**
 
-3. JavaScript
-**JavaScript handles the following functionalities:**
+- **Basic CSS styling is applied to make the app visually appealing. Styles include padding, margins, background colors, and shadow effects for a clean look.**
+
+- **JavaScript handles the following functionalities:**
 
 - **Fetching random three-line poems from the PoetryDB API.**
 

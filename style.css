@@ -75,6 +75,29 @@ button {
 
 #save-favorite {
     margin-left: 52px; 
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+#save-favorite:hover {
+    box-shadow: none;
+    color: #565656;
+}
+
+#toggle-favorites {
+    background-color: rgba(255,255,255,0.9);
+    border-radius: 4px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+#toggle-favorites:hover {
+    box-shadow: none;
+    color: #565656;
 }
 
 pre {

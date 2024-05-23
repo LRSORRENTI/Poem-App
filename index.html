@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Haiku with HTMX</title>
+    <title>Random Poem with HTMX</title>
     <script src="https://unpkg.com/htmx.org@1.4.1"></script>
     <style>
         body {
@@ -13,7 +13,7 @@
             text-align: center;
             padding: 20px;
         }
-        #haiku {
+        #poem {
             margin-top: 20px;
             padding: 20px;
             background-color: #fff;
@@ -35,50 +35,52 @@
     </style>
 </head>
 <body>
-    <h1>Random Haiku</h1>
-    <button id="fetch-haiku">Get Random Haiku</button>
-    <div id="haiku"></div>
+    <h1>Random Poem</h1>
+    <button id="fetch-poem">Get Random Poem</button>
+    <div id="poem"></div>
     <button id="save-favorite" style="display:none;">Save to Favorites</button>
     <button id="toggle-favorites">Show Favorites</button>
     <div id="favorites">
-        <h2 id="favorites-h2" style="display: none;">Favorite Haikus</h2>
+        <h2 id="favorites-h2" style="display: none;">Favorite poems</h2>
         <ul id="favorite-list"></ul>
     </div>
 
     <script>
-        const fetchHaikuButton = document.getElementById('fetch-haiku');
+        
+        const fetchpoemButton = document.getElementById('fetch-poem');
         const saveFavoriteButton = document.getElementById('save-favorite');
         const toggleFavoritesButton = document.getElementById('toggle-favorites');
-        const haikuDiv = document.getElementById('haiku');
+        const poemDiv = document.getElementById('poem');
         const favoriteList = document.getElementById('favorite-list');
         const favoritesh2 = document.getElementById('favorites-h2');
 
-        fetchHaikuButton.addEventListener('click', function() {
+        fetchpoemButton.addEventListener('click', function() {
+            const rand = Math.ceil(Math.random() * 5);
             // fetch('https://poetrydb.org/linecount/3/lines.json')
-            fetch('https://poetrydb.org/linecount/3/lines.json')
+            fetch(`https://poetrydb.org/linecount/${rand}/lines.json`)
                 .then(response => response.json())
                 .then(data => {
-                    const haikus = data;
-                    const randomHaiku = haikus[Math.floor(Math.random() * haikus.length)].lines;
-                    let haikuHTML = '<pre>';
-                    randomHaiku.forEach(line => {
-                        haikuHTML += `${line}\n`;
+                    const poems = data;
+                    const randompoem = poems[Math.floor(Math.random() * poems.length)].lines;
+                    let poemHTML = '<pre>';
+                    randompoem.forEach(line => {
+                        poemHTML += `${line}\n`;
                     });
-                    haikuHTML += '</pre>';
-                    haikuDiv.innerHTML = haikuHTML;
+                    poemHTML += '</pre>';
+                    poemDiv.innerHTML = poemHTML;
                     saveFavoriteButton.style.display = 'block';
-                    saveFavoriteButton.dataset.haiku = haikuHTML;
+                    saveFavoriteButton.dataset.poem = poemHTML;
                 })
                 .catch(error => {
-                    console.error('Error fetching haiku:', error);
-                    haikuDiv.innerText = 'Failed to fetch haiku';
+                    console.error('Error fetching poem:', error);
+                    poemDiv.innerText = 'Failed to fetch poem';
                 });
         });
 
         saveFavoriteButton.addEventListener('click', function() {
-            const haiku = this.dataset.haiku;
+            const poem = this.dataset.poem;
             let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-            favorites.push(haiku);
+            favorites.push(poem);
             localStorage.setItem('favorites', JSON.stringify(favorites));
             updateFavoriteList();
         });
@@ -100,9 +102,9 @@
         function updateFavoriteList() {
             const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
             favoriteList.innerHTML = '';
-            favorites.forEach((haiku, index) => {
+            favorites.forEach((poem, index) => {
                 const li = document.createElement('li');
-                li.innerHTML = haiku;
+                li.innerHTML = poem;
                 const removeButton = document.createElement('button');
                 removeButton.innerText = 'Remove';
                 removeButton.onclick = function() {

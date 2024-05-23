@@ -39,17 +39,22 @@ saveFavoriteButton.addEventListener('click', function () {
 
 toggleFavoritesButton.addEventListener('click', function () {
     const favoriteListDiv = document.getElementById('favorite-list');
+    const paperDiv = document.getElementById('paper-div');
+    const favoritesh2 = document.getElementById('favorites-h2'); // Assuming there is an element with this ID
 
-    if (favoriteListDiv.style.display === 'none') {
+    if (favoriteListDiv.style.display === 'none' || favoriteListDiv.style.display === '') {
         favoriteListDiv.style.display = 'block';
         favoritesh2.style.display = 'block';
+        paperDiv.style.display = 'none';
         toggleFavoritesButton.textContent = 'Hide Favorites';
     } else {
         favoriteListDiv.style.display = 'none';
         favoritesh2.style.display = 'none';
+        paperDiv.style.display = 'block';
         toggleFavoritesButton.textContent = 'Show Favorites';
     }
 });
+
 
 function updateFavoriteList() {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];

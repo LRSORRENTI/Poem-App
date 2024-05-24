@@ -2,11 +2,12 @@
 
 body {
     font-family: 'Indie Flower', sans-serif;
+    margin: 0;
     padding: 0;
     background: lightgoldenrodyellow;
     color: #333;
     text-align: center;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 #fetch-poem {
@@ -56,15 +57,24 @@ button {
     font-family: 'Indie Flower', sans-serif;
     font-weight: 900;
     letter-spacing: 3px;
+    /* border: 3px solid darkblue; */
 }
+
+#favorites-h2 { 
+    opacity: 0;
+    display: none;
+}
+
 #favorite-list {
     display: none;
     list-style-type: none;
-    border: 2px solid #333;
+    /* border: 2px solid #333; */
     width: fit-content;
-    /* padding: 2vw; */
     text-align: left;
-    margin-top: 130px;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 
 #favorite-list li {
@@ -72,6 +82,7 @@ button {
     padding-left: 1rem;
     padding-top: 1rem;
     margin-bottom: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 #save-favorite {
@@ -90,11 +101,12 @@ button {
 }
 
 #toggle-favorites {
-    position: absolute;
+    /* position: absolute;
     bottom: 4px;
-    /* top: 50%; */
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%; */
+/*     
+    transform: translate(-50%, -50%); */
     background-color: rgba(255,255,255,0.9);
     border-radius: 4px;
     font-weight: 600;
